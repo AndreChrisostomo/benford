@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 
 # files = ['LULA1.txt', 'LULA2.txt', 'JAIR1.txt', 'JAIR2.txt']
-def benford(data):
+def benford(data, title='Benford\'s Law'):
     # with open(data,'r') as f:
     for i, x in enumerate(data):
         if type(x) == int:
@@ -49,32 +49,24 @@ def benford(data):
         elif primeiro_digito == '9':
             digit9.append(primeiro_digito)
             
-        elif primeiro_digito == '0':
+        else:
             digit0.append(primeiro_digito)
             
 
 
-        labels = '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-        sizes = [len(digit1), len(digit2), len(digit3), len(digit4), len(digit5), len(digit6), len(digit7), len(digit8), len(digit9), len(digit0)]
-        #percentage of len
-        sizes_p = [i / 100 for i in sizes]
+    labels = '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+    sizes = [len(digit1), len(digit2), len(digit3), len(digit4), len(digit5), len(digit6), len(digit7), len(digit8), len(digit9), len(digit0)]
+    #percentage of len
+    sizes_p = [i / 100 for i in sizes]
 
-        #plot bar chart
-        plt.plot(labels,sizes_p)
-        if data == 'LULA1.txt':
-            plt.title('LULA PRIMEIRO TURNO')
-        elif data == 'LULA2.txt':
-            plt.title('LULA SEGUNDO TURNO')
-        elif data == 'JAIR1.txt':
-            plt.title('JAIR PRIMEIRO TURNO')
-        elif data == 'JAIR2.txt':
-            plt.title('JAIR SEGUNDO TURNO')
-        
-        plt.xlabel('DIGITOS')
-        plt.ylabel('FREQUENCIA')
-        plt.show()
+    #plot bar chart
+    plt.plot(labels,sizes_p)
+    plt.title(title)
+    plt.xlabel('DIGITOS')
+    plt.ylabel('FREQUENCIA')
+    plt.show()
 
-        print(sizes)
+    print(sizes)
 
 
         
